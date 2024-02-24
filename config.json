@@ -1,0 +1,7 @@
+{
+  "rpc_nodes": ["http://localhost:8080"],
+  "account": "YOUR_USERNAME",
+  "active_key": "YOUR_ACTIVE_KEY",
+  "interval": 60,
+  "peg_multi": 1
+}
