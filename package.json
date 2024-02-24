@@ -10,6 +10,6 @@
     "steem": "^0.7.7",
     "request": "^2.88.2"
   },
-  "author": "@krishiv",
+  "author": "krishiv",
   "license": "ISC"
 }
