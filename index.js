@@ -1,15 +1,22 @@
 const fs = require("fs");
-  const steem = require('steem');
-  const request = require("request");
+const steem = require('steem');
+const request = require("request");
 
-  var config = JSON.parse(fs.readFileSync("config.json"));
+var config = JSON.parse(fs.readFileSync("config.json"));
+var rpc_node = process.env.RPC_NODE || config.rpc_nodes ? config.rpc_nodes[0] : (config.rpc_node ? config.rpc_node : 'https://api.steemit.com');
+var interval = process.env.INTERVAL || config.interval;
+var account = process.env.ACCOUNT || config.account;
+var active_key = process.env.ACTIVE_KEY || config.active_key;
 
-  // Connect to the specified RPC node
-  var rpc_node = config.rpc_nodes ? config.rpc_nodes[0] : (config.rpc_node ? config.rpc_node : 'https://api.steemit.com');
-  steem.api.setOptions({ transport: 'http', uri: rpc_node, url: rpc_node });
+// Keep peg_multi as is, without environment variable override
+var peg_multi = config.peg_multi || 1;
 
-  setInterval(startProcess, config.interval * 60 * 1000);
-  startProcess();
+steem.api.setOptions({ transport: 'http', uri: rpc_node, url: rpc_node });
+
+setInterval(startProcess, interval * 60 * 1000);
+startProcess();
+
+// Start The Main Process
 
   function startProcess() {
       // Load price directly from Binance for STEEM/USDT
