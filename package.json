@@ -1,7 +1,7 @@
 {
   "name": "SteemPriceFeed",
   "version": "1.0.0",
-  "description": "A Basic Nodejs Script that feeds price to the steem blockchain fetching from binance",
+  "description": "A Nodejs Script that feeds price to the steem blockchain fetching from binance",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
