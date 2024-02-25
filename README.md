@@ -62,7 +62,7 @@ npm install
 
 <p>Run the Docker container:</p>
 
-<pre><code>docker run  -d -e RPC_NODE='https://api.steemit.com' -e INTERVAL=60 -e ACCOUNT='yourSteemitUsername' -e ACTIVE_KEY='yourPrivateKey' -t pricefeed
+<pre><code>docker run  -d pricefeed
 </code></pre>
 
 <h2>📝 Usage</h2>
