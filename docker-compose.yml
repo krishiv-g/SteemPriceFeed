@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  pricefeed:
+    build:
+      context: ./pricefeed
+      dockerfile: Dockerfile
+    image: pricefeed:latest
+    container_name: STEEM.PRICEFEED
+    restart: unless-stopped
+    volumes:
+      - ./pricefeed-config.json:/usr/src/app/config.json:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "2"
